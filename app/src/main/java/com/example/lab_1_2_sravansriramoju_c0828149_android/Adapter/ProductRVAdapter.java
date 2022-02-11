@@ -77,9 +77,9 @@ public class ProductRVAdapter extends RecyclerView.Adapter<ProductRVAdapter.MyVi
         bundle.putInt("id", prod.getProductId());
         bundle.putString("name", prod.getProductName());
         bundle.putString("description", prod.getDescription());
-        bundle.putString("price", String.valueOf(prod.getPrice()));
-        bundle.putString("latitude", String.valueOf(prod.getLatitude()));
-        bundle.putString("longitude", String.valueOf(prod.getLongitude()));
+        bundle.putDouble("price", prod.getPrice());
+        bundle.putDouble("latitude", prod.getLatitude());
+        bundle.putDouble("longitude", prod.getLongitude());
 
         AddNewProduct product = new AddNewProduct();
         product.setArguments(bundle);
@@ -87,8 +87,8 @@ public class ProductRVAdapter extends RecyclerView.Adapter<ProductRVAdapter.MyVi
     }
     public void deleteProduct(int position) {
         ProductModel prod = products.get(position);
-        mDb.deleteProduct(prod.getProductId());
         products.remove(position);
+        mDb.deleteProduct(prod.getProductId());
         notifyItemRemoved(position);
     }
 

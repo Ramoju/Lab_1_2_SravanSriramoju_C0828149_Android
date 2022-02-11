@@ -30,7 +30,6 @@ public class ProductDetailActivity extends AppCompatActivity implements OnMapRea
     private TextView productPrice;
     private double latitude;
     private double longitude;
-    Intent intent;
 
     GoogleMap gMap;
     FusedLocationProviderClient client;

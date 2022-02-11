@@ -64,12 +64,12 @@ public class AddNewProduct extends BottomSheetDialogFragment {
             productName.setText(prodName);
             String prodDesc = bundle.getString("description");
             productDescription.setText(prodDesc);
-            String prodPrice = String.valueOf(bundle.getDouble("price"));
-            productPrice.setText(prodPrice);
-            String providerLat =String.valueOf(bundle.getDouble("latitude"));
-            providerLatitude.setText(providerLat);
-            String providerLong =String.valueOf(bundle.getDouble("longitude"));
-            providerLongitude.setText(providerLong);
+            double prodPrice = bundle.getDouble("price");
+            productPrice.setText(String.valueOf(prodPrice));
+            double providerLat = bundle.getDouble("latitude");
+            providerLatitude.setText(String.valueOf(providerLat));
+            double providerLong = bundle.getDouble("longitude");
+            providerLongitude.setText(String.valueOf(providerLong));
 
         }
 
@@ -90,19 +90,13 @@ public class AddNewProduct extends BottomSheetDialogFragment {
                     item.setPrice(price);
                     item.setLatitude(latitude);
                     item.setLongitude(longitude);
-                    mDB.insertProduct(item);
+
 
                     if (finalisUpdate) {
                         mDB.updateProduct(item.getProductId(), name, description, price, latitude, longitude);
                     }
                     else {
-                        ProductModel p = new ProductModel();
-                        p.setProductName(name);
-                        p.setDescription(description);
-                        p.setPrice(price);
-                        p.setLatitude(latitude);
-                        p.setLongitude(longitude);
-                        mDB.insertProduct(p);
+                        mDB.insertProduct(item);
                     }
 
                 dismiss();

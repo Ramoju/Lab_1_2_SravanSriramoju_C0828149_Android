@@ -19,11 +19,33 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlelabel"
+        android:id="@+id/totalproductslabel"
+        android:text="Total Products:"
+        android:textColor="@color/black"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingStart="3dp"
+        android:id="@+id/totalproductsvalue"
+        android:layout_toRightOf="@id/totalproductslabel"
+        android:layout_below="@id/titlelabel"
+        android:textStyle="bold"/>
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/productsRV"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titlelabel"
+        android:layout_below="@id/totalproductslabel"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"/>
 

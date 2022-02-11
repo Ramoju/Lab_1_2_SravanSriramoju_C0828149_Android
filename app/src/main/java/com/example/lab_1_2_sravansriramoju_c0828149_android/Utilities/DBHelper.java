@@ -64,7 +64,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void deleteProduct(int id){
         db = this.getWritableDatabase();
-        db.delete(TABLE_NAME,"ID=?", new String[]{String.valueOf(id)});
+        db.delete(TABLE_NAME,"PRODUCT_ID=?", new String[]{String.valueOf(id)});
     }
 
     public void updateProduct(int id, String name, String description, double price, double latitude, double longitude){
@@ -75,7 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PRICE, price);
         values.put(COLUMN_LATITUDE, latitude);
         values.put(COLUMN_LONGITUDE, longitude);
-        db.update(TABLE_NAME , values , "ID=?" , new String[]{String.valueOf(id)});
+        db.update(TABLE_NAME , values , "PRODUCT_ID=?" , new String[]{String.valueOf(id)});
     }
 
 
