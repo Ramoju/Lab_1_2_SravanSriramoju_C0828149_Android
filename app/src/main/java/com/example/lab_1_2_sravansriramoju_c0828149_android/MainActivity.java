@@ -1,6 +1,7 @@
 package com.example.lab_1_2_sravansriramoju_c0828149_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(adapter);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ProductsRVItemTouchHelper(adapter));
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
 
 //        ProductModel p1 = new ProductModel(1, "Pen", 20, 43.2456, 45.1290, "Test");
 //

@@ -51,7 +51,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void insertProduct(ProductModel product){
-        System.out.println("Insert method in DBhelper");
+        System.out.println("Insert method in DB helper");
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, product.getProductName());
@@ -67,34 +67,17 @@ public class DBHelper extends SQLiteOpenHelper {
         db.delete(TABLE_NAME,"ID=?", new String[]{String.valueOf(id)});
     }
 
-    public void updateProductName(int id, String name){
+    public void updateProduct(int id, String name, String description, double price, double latitude, double longitude){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, name);
-        db.update(TABLE_NAME , values , "ID=?" , new String[]{String.valueOf(id)});
-    }
-
-    public void updateProductPrice(int id, double price){
-        db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
+        values.put(COLUMN_DESC, description);
         values.put(COLUMN_PRICE, price);
-        db.update(TABLE_NAME , values , "ID=?" , new String[]{String.valueOf(id)});
-    }
-
-    public void updateProductDescription(int id, String desc){
-        db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_DESC, desc);
-        db.update(TABLE_NAME , values , "ID=?" , new String[]{String.valueOf(id)});
-    }
-
-    public void updateProviderLocation(int id, double latitude, double longitude){
-        db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
         values.put(COLUMN_LATITUDE, latitude);
         values.put(COLUMN_LONGITUDE, longitude);
         db.update(TABLE_NAME , values , "ID=?" , new String[]{String.valueOf(id)});
     }
+
 
     public List<ProductModel> getAllProducts() {
         db = this.getWritableDatabase();

@@ -93,12 +93,13 @@ public class AddNewProduct extends BottomSheetDialogFragment {
                     mDB.insertProduct(item);
 
                     if (finalisUpdate) {
-                        mDB.updateProductName(bundle.getInt("id"), name);
+                        mDB.updateProduct(item.getProductId(), name, description, price, latitude, longitude);
                     }
                     else {
                         ProductModel p = new ProductModel();
                         p.setProductName(name);
                         p.setDescription(description);
+                        p.setPrice(price);
                         p.setLatitude(latitude);
                         p.setLongitude(longitude);
                         mDB.insertProduct(p);

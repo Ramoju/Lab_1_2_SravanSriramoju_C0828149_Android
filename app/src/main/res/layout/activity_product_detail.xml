@@ -91,11 +91,21 @@
         android:text="Provider's Location"
         android:layout_below="@id/productpricelabel"
         android:textSize="15sp"
+        android:id="@+id/locationlabel"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:paddingStart="5dp"
         android:layout_marginTop="30dp"/>
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/locationlabel"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/maps"
+        android:layout_marginRight="5dp"/>
 
 
 </RelativeLayout>

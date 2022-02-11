@@ -50,11 +50,7 @@ public class ProductRVAdapter extends RecyclerView.Adapter<ProductRVAdapter.MyVi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, ProductDetailActivity.class);
-                intent.putExtra("prodName", item.getProductName());
-                intent.putExtra("proddesc", item.getDescription());
-                intent.putExtra("prodprice", item.getPrice());
-                intent.putExtra("providerlat", item.getLatitude());
-                intent.putExtra("providerlong", item.getLongitude());
+                intent.putExtra("product", item);
                 getContext().startActivity(intent);
             }
         });
